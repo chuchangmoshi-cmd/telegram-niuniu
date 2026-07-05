@@ -1,41 +1,37 @@
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
-import type { FC } from 'react';
-
-import { Link } from '@/components/Link/Link.tsx';
-import { Page } from '@/components/Page.tsx';
-
-import tonSvg from './ton.svg';
+import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import { Page } from "@/components/Page.tsx";
+import { List, Section, Cell } from "@telegram-apps/telegram-ui";
 
 export const IndexPage: FC = () => {
-  return (
+  const navigate = useNavigate();
+    return (
     <Page back={false}>
       <List>
-        <Section
-          header="Features"
-          footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
-        >
-          <Link to="/ton-connect">
-            <Cell
-              before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>}
-              subtitle="Connect your TON wallet"
-            >
-              TON Connect
-            </Cell>
-          </Link>
+        <Section header="🐮 NiuNiu">
+          <Cell subtitle="Telegram Mini App">
+            欢迎来到牛牛娱乐
+          </Cell>
         </Section>
-        <Section
-          header="Application Launch Data"
-          footer="These pages help developer to learn more about current launch information"
-        >
-          <Link to="/init-data">
-            <Cell subtitle="User data, chat information, technical data">Init Data</Cell>
-          </Link>
-          <Link to="/launch-params">
-            <Cell subtitle="Platform identifier, Mini Apps version, etc.">Launch Parameters</Cell>
-          </Link>
-          <Link to="/theme-params">
-            <Cell subtitle="Telegram application palette information">Theme Parameters</Cell>
-          </Link>
+
+        <Section header="游戏">
+  <Cell onClick={() => navigate("/create-room")}>
+    🎲 创建房间
+  </Cell>
+
+  <Cell onClick={() => navigate("/join-room")}>
+    🚪 加入房间
+  </Cell>
+
+  <Cell onClick={() => navigate("/rooms")}>
+    👥 房间列表
+  </Cell>
+</Section>
+
+        <Section header="个人">
+          <Cell>🏆 排行榜</Cell>
+          <Cell>📜 我的战绩</Cell>
+          <Cell>⚙ 设置</Cell>
         </Section>
       </List>
     </Page>

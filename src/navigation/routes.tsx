@@ -1,6 +1,9 @@
 import type { ComponentType, JSX } from 'react';
-
 import { IndexPage } from '@/pages/IndexPage/IndexPage';
+import { CreateRoomPage } from '@/pages/CreateRoomPage/CreateRoomPage';
+import { RoomPage } from '@/pages/RoomPage/RoomPage';
+import { JoinRoomPage } from '@/pages/JoinRoomPage/JoinRoomPage';
+import { RoomListPage } from '@/pages/RoomListPage/RoomListPage';
 import { InitDataPage } from '@/pages/InitDataPage.tsx';
 import { LaunchParamsPage } from '@/pages/LaunchParamsPage.tsx';
 import { ThemeParamsPage } from '@/pages/ThemeParamsPage.tsx';
@@ -15,9 +18,15 @@ interface Route {
 
 export const routes: Route[] = [
   { path: '/', Component: IndexPage },
+  { path: '/create-room', Component: CreateRoomPage },
+  { path: '/join-room', Component: JoinRoomPage },
+  { path: '/rooms', Component: RoomListPage },
+  { path: '/room/:roomId', Component: RoomPage },
+
   { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
   { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },
   { path: '/launch-params', Component: LaunchParamsPage, title: 'Launch Params' },
+
   {
     path: '/ton-connect',
     Component: TONConnectPage,
